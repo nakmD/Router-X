@@ -22,22 +22,10 @@
       </div>
     </header>
     <div id="demo">
-      <hooper :progress="true" :autoPlay="true" :playSpeed="2000">
-        <slide>
-          好きなアーティストの情報を知ろう！
-        </slide>
-        <slide>
-          好きなアーティストの同じファンの人と話そう！
-        </slide>
-        <slide>
-          新しく好きなアーティストを見つけよう
-        </slide>
-      </hooper>
-      <!-- <p class="animate__animated animate__fadeInTopLeft">好きなアーティストの情報を知ろう！</p>
-      <p class="animate__animated animate__fadeInTopLeft">好きなアーティストの同じファンの人と話そう！</p>
-      <p class="animate__animated animate__fadeInTopLeft">新しく好きなアーティストを見つけよう</p> -->
+      <template>
+        <carousel :data="data" indicators="hover"></carousel>
+      </template>
     </div>
-
   </div>
 </template>
 
@@ -47,9 +35,15 @@
 
 export default {
   name: 'Home',
-  // components: {
-  //   HelloWorld
-  // }
+  data() {
+    return {
+      data: [
+        '<div class="slide1">好きなアーティストの情報を知ろう！</div>',
+        '<div class="slide1">好きなアーティストの情報を知ろう！</div>',
+        '<div class="slide1">新しく好きなアーティストを見つけよう</div>',
+      ],
+    };
+  }
 }
 </script>
 
@@ -127,7 +121,7 @@ export default {
   }
 }
 
-.hello {
+.home {
   height: 100vh;
 }
 
@@ -202,9 +196,22 @@ main > h1 {
   text-align: center;
 }
 
-/* @media (min-width: 768px) {
+/* carousel */
+.carousel {
+  text-align: center;
+  height: 20vh;
+  font-size: 1.6rem;
+  background-color: rgb(80, 162, 255);
+}
 
-} */
+.carousel__list {
+  height: 50%;
+  padding: 0;
+}
+.slide1 {
+  height: 100%;
+}
+
 @media (min-width: 768px) {
   #nav {
     padding: 3px;
