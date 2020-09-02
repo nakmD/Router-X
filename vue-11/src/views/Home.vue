@@ -91,10 +91,10 @@ export default {
     }
   },
   methods: {
-    onSlideStart(slide) {
+    onSlideStart() {
       this.sliding = true
     },
-    onSlideEnd(slide) {
+    onSlideEnd() {
       this.sliding = false
     }
   }
@@ -102,6 +102,28 @@ export default {
 </script>
 
 <style scoped>
+/* carousel */
+b-carousel-slide {
+  position: relative;
+}
+.explain3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  font-size: 2rem;
+  color: white;
+}
+
+b-carousel-slide .d-block {
+  width: 100%;
+  opacity: 0.1;
+}
+
 @media (min-width: 940px) {
   header {
     box-sizing: content-box;
