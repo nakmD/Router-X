@@ -21,28 +21,82 @@
         </nav>
       </div>
     </header>
-    <div id="demo">
-      <template>
-        <carousel :data="data" indicators="hover"></carousel>
-      </template>
+    <div>
+      <b-carousel
+        id="carousel-1"
+        v-model="slide"
+        :interval="4000"
+        controls
+        indicators
+        background="#ababab"
+        img-width="1024"
+        img-height="480"
+        style="text-shadow: 1px 1px 2px #333;"
+        @sliding-start="onSlideStart"
+        @sliding-end="onSlideEnd"
+      >
+        <b-carousel-slide>
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid w-100"
+              width="1024"
+              height="480"
+              src="../../image/mobile-phone-998871_1280.jpg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+
+        <b-carousel-slide caption="Third Slide">
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid w-100"
+              width="1024"
+              height="480"
+              src="../../image/mobile-phone-998871_1280.jpg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+
+        <b-carousel-slide img-alt="新しく好きなアーティストを見つけよう！">
+          <template v-slot:img>
+            <img
+              class="d-block img-fluid w-100"
+              width="1024"
+              height="480"
+              src="../../image/mobile-phone-998871_1280.jpg"
+              alt="image slot"
+            >
+          </template>
+        </b-carousel-slide>
+
+      </b-carousel>
+
+      <p class="mt-4">
+        Slide #: {{ slide }}<br>
+        Sliding: {{ sliding }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   data() {
     return {
-      data: [
-        '<div class="slide1">好きなアーティストの情報を知ろう！</div>',
-        '<div class="slide1">好きなアーティストの情報を知ろう！</div>',
-        '<div class="slide1">新しく好きなアーティストを見つけよう</div>',
-      ],
-    };
+      slide: 0,
+      sliding: null
+    }
+  },
+  methods: {
+    onSlideStart(slide) {
+      this.sliding = true
+    },
+    onSlideEnd(slide) {
+      this.sliding = false
+    }
   }
 }
 </script>
@@ -194,22 +248,6 @@ main {
 
 main > h1 {
   text-align: center;
-}
-
-/* carousel */
-.carousel {
-  text-align: center;
-  height: 20vh;
-  font-size: 1.6rem;
-  background-color: rgb(80, 162, 255);
-}
-
-.carousel__list {
-  height: 50%;
-  padding: 0;
-}
-.slide1 {
-  height: 100%;
 }
 
 @media (min-width: 768px) {
