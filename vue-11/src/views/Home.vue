@@ -37,35 +37,38 @@
       >
         <b-carousel-slide>
           <template v-slot:img>
+            <p class="explain3">好きなアーティストの最新情報を知ろう！</p>
             <img
               class="d-block img-fluid w-100"
               width="1024"
               height="480"
-              src="../../image/mobile-phone-998871_1280.jpg"
+              src="../../image/headphones-925886_1280.jpg"
               alt="image slot"
             >
           </template>
         </b-carousel-slide>
 
-        <b-carousel-slide caption="Third Slide">
+        <b-carousel-slide>
           <template v-slot:img>
+            <p class="explain3">好きなアーティストの同じファンの人と話そう！</p>
             <img
               class="d-block img-fluid w-100"
               width="1024"
               height="480"
-              src="../../image/mobile-phone-998871_1280.jpg"
+              src="../../image/friends-1281366_1280.jpg"
               alt="image slot"
             >
           </template>
         </b-carousel-slide>
 
-        <b-carousel-slide img-alt="新しく好きなアーティストを見つけよう！">
+        <b-carousel-slide>
           <template v-slot:img>
+            <p class="explain3">新しく好きなアーティストを見つけよう！</p>
             <img
-              class="d-block img-fluid w-100"
+              class="slimg d-block img-fluid w-100"
               width="1024"
               height="480"
-              src="../../image/mobile-phone-998871_1280.jpg"
+              src="../../image/ipad-605439_1280.jpg"
               alt="image slot"
             >
           </template>
@@ -102,7 +105,7 @@ export default {
 </script>
 
 <style scoped>
-/* carousel */
+/* carousel 文字を中央に配置する CSS */
 b-carousel-slide {
   position: relative;
 }
@@ -117,11 +120,6 @@ b-carousel-slide {
   padding:0;
   font-size: 2rem;
   color: white;
-}
-
-b-carousel-slide .d-block {
-  width: 100%;
-  opacity: 0.1;
 }
 
 @media (min-width: 940px) {
@@ -148,7 +146,6 @@ b-carousel-slide .d-block {
   }
 
   header nav {
-    /* display: -webkit-box; */
     display: -ms-flexbox;
     display: flex;
     margin-right: 233px;
@@ -156,7 +153,6 @@ b-carousel-slide .d-block {
   }
 
   header nav .header-menu {
-    /* display: -webkit-box; */
     display: -ms-flexbox;
     display: flex;
     height: 100%;
