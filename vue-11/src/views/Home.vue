@@ -21,66 +21,63 @@
         </nav>
       </div>
     </header>
-    <div>
-      <b-carousel
-        id="carousel-1"
-        v-model="slide"
-        :interval="4000"
-        controls
-        indicators
-        background="#ababab"
-        img-width="1024"
-        img-height="480"
-        style="text-shadow: 1px 1px 2px #333;"
-        @sliding-start="onSlideStart"
-        @sliding-end="onSlideEnd"
-      >
-        <b-carousel-slide>
-          <template v-slot:img>
-            <p class="explain3">好きなアーティストの最新情報を知ろう！</p>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="../../image/headphones-925886_1280.jpg"
-              alt="image slot"
-            >
-          </template>
-        </b-carousel-slide>
+    <main>
+      <div>
+        <b-carousel
+          id="carousel-1"
+          v-model="slide"
+          :interval="5000"
+          controls
+          indicators
+          background="#ababab"
+          img-width="100%"
+          img-height="480"
+          style="text-shadow: 1px 1px 2px #333;"
+          @sliding-start="onSlideStart"
+          @sliding-end="onSlideEnd"
+        >
+          <b-carousel-slide>
+            <template v-slot:img>
+              <p class="explain3">好きなアーティストの<br>最新情報を知ろう！</p>
+              <img
+                class="d-block img-fluid w-100"
+                width="1024"
+                height="480"
+                src="../../image/headphones-925886_1280.jpg"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
 
-        <b-carousel-slide>
-          <template v-slot:img>
-            <p class="explain3">好きなアーティストの同じファンの人と話そう！</p>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="../../image/friends-1281366_1280.jpg"
-              alt="image slot"
-            >
-          </template>
-        </b-carousel-slide>
+          <b-carousel-slide>
+            <template v-slot:img>
+              <p class="explain3">好きなアーティストの<br>同じファンの人と話そう！</p>
+              <img
+                class="d-block img-fluid w-100"
+                width="1024"
+                height="480"
+                src="../../image/friends-1281366_1280.jpg"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
 
-        <b-carousel-slide>
-          <template v-slot:img>
-            <p class="explain3">新しく好きなアーティストを見つけよう！</p>
-            <img
-              class="slimg d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="../../image/ipad-605439_1280.jpg"
-              alt="image slot"
-            >
-          </template>
-        </b-carousel-slide>
+          <b-carousel-slide>
+            <template v-slot:img>
+              <p class="explain3">新しく好きなアーティスト<br>を見つけよう！</p>
+              <img
+                class="slimg d-block img-fluid w-100"
+                width="1024"
+                height="480"
+                src="../../image/ipad-605439_1280.jpg"
+                alt="image slot"
+              >
+            </template>
+          </b-carousel-slide>
 
-      </b-carousel>
-
-      <p class="mt-4">
-        Slide #: {{ slide }}<br>
-        Sliding: {{ sliding }}
-      </p>
-    </div>
+        </b-carousel>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -105,6 +102,24 @@ export default {
 </script>
 
 <style scoped>
+.d-block {
+  width:100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.home {
+  height: 100%;
+}
+
+header {
+  height: 10vh;
+  background-color: rgb(250, 250, 250);
+}
+
+main {
+  height: 90%;
+}
 /* carousel 文字を中央に配置する CSS */
 b-carousel-slide {
   position: relative;
@@ -118,14 +133,20 @@ b-carousel-slide {
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
-  font-size: 2rem;
+  font-size: 3rem;
   color: white;
+  text-shadow: 0 0 8px #004386;
+  width: 100%;
 }
 
 @media (min-width: 940px) {
+  .d-block {
+    width:100%;
+    height: auto;
+  }
+
   header {
     box-sizing: content-box;
-    height: 94px;
     border-bottom: 1px solid #ccc;
     font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Meiryo UI","メイリオ",Meiryo,"游ゴシック","Yu Gothic","游ゴシック体",YuGothic,"ＭＳ Ｐゴシック","MS PGothic",HelveticaNeue-Regular,sans-serif;
   }
@@ -133,7 +154,6 @@ b-carousel-slide {
   header .header-wrap {
     position: relative;
     padding: 0;
-    height: 10vh;
   }
 
   header .logo {
@@ -193,14 +213,6 @@ b-carousel-slide {
   }
 }
 
-.home {
-  height: 100vh;
-}
-
-header {
-  height: 10vh;
-  background-color: rgb(250, 250, 250);
-}
 
 header .header-humberger {
   position: absolute;
@@ -208,7 +220,6 @@ header .header-humberger {
   right: 18px;
   z-index: 100;
   display: block;
-  /* -webkit-box-sizing: content-box; */
   box-sizing: content-box;
   margin-top: -11px;
   width: 30px;
@@ -267,7 +278,27 @@ main {
 main > h1 {
   text-align: center;
 }
+@media (max-width: 1220px) {
+  .explain3 {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 840px) {
+  .explain3 {
+    font-size: 2.2rem;
+  }
 
+}
+@media (max-width: 680px) {
+  .explain3 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 580px) {
+  .explain3 {
+    font-size: 1.7rem;
+  }
+}
 @media (min-width: 768px) {
   #nav {
     padding: 3px;
